@@ -5,6 +5,7 @@ using Unity.Entities;
 using UnityEngine;
 using Unity.Rendering;
 using Assets.Scripts.Components;
+using Assets.Scripts.Systems;
 
 public class GameManager : MonoBehaviour
 {
@@ -23,35 +24,8 @@ public class GameManager : MonoBehaviour
     private void Start( )
     {
         QualitySettings.vSyncCount = 0;
-
-        /*
-        manager = World.Active.GetOrCreateManager<EntityManager>( );
-
-        var playerArchetype = manager.CreateArchetype(
-            typeof( TransformMatrix ),
-            typeof( MeshInstanceRenderer ),
-            typeof( Position ),
-            typeof( MoveSpeed ),
-            typeof( InputComponent )
-            );
-
-        Player = manager.CreateEntity( playerArchetype );
-
-        manager.SetSharedComponentData( Player, new MeshInstanceRenderer
-        {
-            mesh = PlayerMesh,
-            material = PlayerMaterial
-        } );
-
-        var playerSpawn = GameObject.Find( "PlayerSpawn" );
-
-        manager.SetComponentData( Player, new Position { Value = playerSpawn.transform.position } );
-        manager.SetComponentData( Player, new MoveSpeed { speed = 0 } );
-
-        Object.Destroy( playerSpawn );
-        */
-
-        //AddEntities( 500 );
+        var player = GameObject.Find( "Player" ).GetComponent<GameObjectEntity>( ).Entity;
+        World.Active.GetExistingManager<EntityManager>( ).AddComponentData( player, new HealthComponent { Max = 100, Current = 100 } );
     }
 
     private void Update( )
