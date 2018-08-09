@@ -10,7 +10,7 @@ namespace Assets.Scripts.Systems
         private struct Filter
         {
             public Rigidbody      Rigidbody;
-            public JumpComponent  JumpComponent;
+            //public JumpComponent  JumpComponent;
             public InputComponent InputComponent;
         }
 
