@@ -198,6 +198,7 @@ GameObject:
   - component: {fileID: 161063069}
   - component: {fileID: 161063068}
   - component: {fileID: 161063072}
+  - component: {fileID: 161063073}
   m_Layer: 0
   m_Name: Hazard_01
   m_TagString: Untagged
@@ -284,6 +285,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Value: 5
+--- !u!114 &161063073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 161063067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8a85af9de0deee4a92f15ee8a75c375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attack: {fileID: 0}
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -1541,7 +1557,6 @@ GameObject:
   - component: {fileID: 1614710990}
   - component: {fileID: 1614710989}
   - component: {fileID: 1614710996}
-  - component: {fileID: 1614710991}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1577,19 +1592,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &1614710991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1614710988}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ac72f8af075a624facccd779f8d46d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Max: 100
-  Current: 100
 --- !u!114 &1614710992
 MonoBehaviour:
   m_ObjectHideFlags: 0
