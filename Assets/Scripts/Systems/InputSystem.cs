@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Components;
 using System;
+using Unity.Collections;
 using Unity.Entities;
 using Unity.Jobs;
 using UnityEngine;
@@ -10,7 +11,7 @@ namespace Assets.Scripts.Systems
     {
         private struct Data
         {
-            public int Length;
+            readonly public int Length;
             public ComponentArray<InputComponent> InputComponents;
         }
 

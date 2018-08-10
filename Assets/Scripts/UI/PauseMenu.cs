@@ -15,6 +15,7 @@ public class PauseMenu : MonoBehaviour
         World.Active.GetExistingManager<MovementSystem>( ).Enabled = false;
         World.Active.GetExistingManager<InputSystem>   ( ).Enabled = false;
         World.Active.GetExistingManager<JumpSystem>    ( ).Enabled = false;
+        World.Active.GetExistingManager<DamageSystem>  ( ).Enabled = false;
         pauseMenu.SetActive( true );
     }
 
@@ -24,11 +25,13 @@ public class PauseMenu : MonoBehaviour
         World.Active.GetExistingManager<MovementSystem>( ).Enabled = true;
         World.Active.GetExistingManager<InputSystem>   ( ).Enabled = true;
         World.Active.GetExistingManager<JumpSystem>    ( ).Enabled = true;
+        World.Active.GetExistingManager<DamageSystem>  ( ).Enabled = true;
         pauseMenu.SetActive( false );
     }
 
     public void ExitToMainMenu( )
     {
+        ResumeGame( );
         SceneManager.LoadScene( "MainMenu" );
     }
 

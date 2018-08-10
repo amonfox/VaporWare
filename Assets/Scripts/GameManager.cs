@@ -17,8 +17,7 @@ public class GameManager : MonoBehaviour
     public Entity Player;
 
     #endregion
-
-
+    
     EntityManager manager;
 
     private void Start( )
@@ -26,15 +25,25 @@ public class GameManager : MonoBehaviour
         QualitySettings.vSyncCount = 0;
         var player = GameObject.Find( "Player" ).GetComponent<GameObjectEntity>( ).Entity;
         World.Active.GetExistingManager<EntityManager>( ).AddComponentData( player, new HealthComponent { Max = 100, Current = 100 } );
+        World.Active.GetExistingManager<EntityManager>( ).AddComponentData( player, new DisplayHealthHUD() );
+
     }
 
     private void Update( )
     {
         if( Input.GetKeyDown("space") )
         {
-            //Jump( );
+            //Jump( );a
             //AddEntities( 500 );
         }
+
+        Camera.onPostRender = null;
+        //Camera.onPostRender += ( Camera camera ) =>
+        //{
+        //    GL.PushMatrix( );
+        //    GL.PopMatrix( );
+        //};
+
     }
 
     void Jump()

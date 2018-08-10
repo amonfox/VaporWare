@@ -1,5 +1,5 @@
 ﻿using Assets.Scripts.Components;
-using System;
+using Unity.Burst;
 using Unity.Collections;
 using Unity.Entities;
 using Unity.Jobs;
@@ -9,7 +9,7 @@ namespace Assets.Scripts.Systems
 {
     class DamageSystem : JobComponentSystem
     {
-        [ComputeJobOptimization]
+        [BurstCompile]
         struct MovementJob : IJobProcessComponentData<HealthComponent, DamageComponent>
         {
             public float deltaTime;
@@ -18,7 +18,7 @@ namespace Assets.Scripts.Systems
             {
                 float deltaDamage = damage.Value * deltaTime;
 
-                Mathf.Clamp( health.Current -= deltaDamage, 0, health.Max );
+                health.Current = Mathf.Clamp( health.Current -= deltaDamage, 0, health.Max );
             }
         }
 
